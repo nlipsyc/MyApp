@@ -16,6 +16,7 @@ import NavigationMixin from './NavigationMixin';
 import AppStore from '../../stores/AppStore';
 import Navbar from '../Navbar';
 import ContentPage from '../ContentPage';
+import ReportPage from '../ReportPage';
 import NotFoundPage from '../NotFoundPage';
 
 export default React.createClass({
@@ -33,35 +34,33 @@ export default React.createClass({
     var page = AppStore.getPage(this.props.path);
     invariant(page !== undefined, 'Failed to load page content.');
     this.props.onSetTitle(page.title);
+    this.props.sideMenuToggle =
 
     if (page.type === 'notfound') {
       this.props.onPageNotFound();
       return React.createElement(NotFoundPage, page);
     }
 
+       sideMenuToggle: function() {
+      sideMenuState: !sideMenuState;
+    }
+
     return (
       <div className="App">
         <Navbar />
         {
-          this.props.path === '/' ?
-          <div className="jumbotron">
-            <div className="container text-center">
-              <h1>React</h1>
-              <p>Complex web apps made easy</p>
-            </div>
-          </div> :
-          <div className="container">
+         <div className="Title">
             <h2>{page.title}</h2>
           </div>
         }
-        <ContentPage className="container" {...page} />
+        <ReportPage className="report__container" {...page} />
         <div className="navbar-footer">
           <div className="container">
-            <p className="text-muted">
-              <span>© KriaSoft</span>
-              <span><a href="/">Home</a></span>
-              <span><a href="/privacy">Privacy</a></span>
-            </p>
+            //<p className="text-muted">
+            //  <span>© KriaSoft</span>
+            //  <span><a href="/">Home</a></span>
+            //  <span><a href="/privacy">Privacy</a></span>
+            //</p>
           </div>
         </div>
       </div>

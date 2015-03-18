@@ -11,3 +11,26 @@
   display: block;
   position: absolute;
 }
+
+.navbar{
+  height: 15%;
+  width: 100%;
+  top: 0;
+  left: 0;
+
+  display: block;
+  position: fixed;
+
+  &__hamburger{
+    width: 10%;
+    display: inline-block;
+  }
+
+  &__header{
+    position: relative;
+    @include horizontalAlign;
+
+    display: inline-block;
+  }
+}
+

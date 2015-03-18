@@ -14,16 +14,12 @@ export default React.createClass({
 
   render() {
     return (
-      <div className="navbar-top" role="navigation">
-        <div className="container">
-          <a className="navbar-brand row" href="/">
-            <img src={require('./logo-small.png')} width="38" height="38" alt="React" />
-            <span>React.js Starter Kit</span>
-            <span><a href="/will-call">Will Call</a></span>
-          </a>
+      <div className="navbar">
+        <div className ={'navbar__hamburger'} onClick={this.sideMenuToggle}>Menu
+        </div>        <div className="navbar__header">
+          Higgins
         </div>
       </div>
     );
   }
-
 });
